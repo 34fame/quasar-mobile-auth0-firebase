@@ -1,0 +1,20 @@
+{
+   "name": "quasar-mobile-auth0-firebase",
+   "version": "1.0.0",
+   "description": "Sandbox demonstrating Quasar with Auth0 and Firebase integration",
+   "main": "index.js",
+   "author": "Troy Moreland <49797484+34fame@users.noreply.github.com>",
+   "license": "MIT",
+   "scripts": {
+      "dev:server": "cd server && node index && cd ..",
+      "dev:spa": "cd client && quasar dev && cd ..",
+      "dev:cordova": "cd client && quasar dev -m android -i && cd ..",
+      "dev:electron": "cd client && quasar dev -m electron && cd ..",
+      "dev:web": "npm-run-all --parallel dev:server dev:spa",
+      "dev:mobile": "npm-run-all --parallel dev:server dev:cordova",
+      "dev:windows": "npm-run-all --parallel dev:server dev:electron"
+   },
+   "devDependencies": {
+      "npm-run-all": "^4.1.5"
+   }
+}
