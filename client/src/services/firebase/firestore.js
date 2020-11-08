@@ -1,6 +1,17 @@
 import { firestore as db } from 'boot/firebase'
 
-const fsCreate = () => {}
+const fsCreate = async (collection, data) => {
+   return db
+      .collection(collection)
+      .add(data)
+      .then((result) => {
+         return result.id
+      })
+      .catch((err) => {
+         console.error('fsCreate', err)
+         return false
+      })
+}
 
 const fsRead = async (collection) => {
    return db
@@ -22,8 +33,31 @@ const fsRead = async (collection) => {
       })
 }
 
-const fsUpdate = () => {}
+const fsUpdate = async (collection, data) => {
+   return db
+      .collection(collection)
+      .doc(data.id)
+      .update(data)
+      .then(() => {
+         return true
+      })
+      .catch((err) => {
+         console.error('fsUpdate', err)
+         return false
+      })
+}
 
-const fsDelete = () => {}
+const fsDelete = async (collection, id) => {
+   return db
+      .collection(collection)
+      .doc(id)
+      .then(() => {
+         return true
+      })
+      .catch((err) => {
+         console.error('fsDelete', err)
+         return false
+      })
+}
 
 export { fsCreate, fsRead, fsUpdate, fsDelete }

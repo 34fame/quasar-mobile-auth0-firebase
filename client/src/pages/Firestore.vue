@@ -1,10 +1,6 @@
 <template>
    <q-page padding>
-      <q-list>
-         <q-item v-for="user in users" :key="user.id">
-            <q-item-label>{{ user.name }}</q-item-label>
-         </q-item>
-      </q-list>
+      <router-view />
    </q-page>
 </template>
 

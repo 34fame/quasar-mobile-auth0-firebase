@@ -8,9 +8,29 @@ const routes = [
             component: () => import('pages/Index.vue'),
          },
          {
-            name: 'firestore',
             path: 'firestore',
             component: () => import('pages/Firestore.vue'),
+            children: [
+               {
+                  name: 'firestore',
+                  path: 'list',
+                  component: () => 'components/FirestoreList.vue',
+               },
+               {
+                  name: 'firestore-add',
+                  path: 'add',
+                  component: () => 'components/FirestoreAdd.vue',
+               },
+               {
+                  name: 'firestore-update',
+                  path: 'update',
+                  component: () => 'components/FirestoreUpdate.vue',
+               },
+               {
+                  path: 'firestore',
+                  redirect: { name: 'firestore-list' },
+               },
+            ],
          },
          {
             name: 'storage',
